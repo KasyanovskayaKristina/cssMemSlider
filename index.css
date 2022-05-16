@@ -111,17 +111,7 @@ body {
   width: var(--vw);
   justify-content: space-between;
 }
-/*
-.switcher-main {
-  display: flex;
-  width: var(--vw);
-  column-gap: 2rem;
-  row-gap: 3rem;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-*/
+
 .switcher {
   display: inline-flex;
   align-items: center;
