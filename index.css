@@ -1,0 +1,191 @@
+:root {
+  --vw: 35rem;
+}
+
+* {
+  box-sizing: border-box;
+  font-weight: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --vw: 80vw;
+  }
+  .switcher-main {
+    flex-direction: column-reverse;
+  }
+  .switcher-buttons {
+    align-self: center;
+  }
+}
+
+.img {
+  vertical-align: top;
+}
+
+html,
+body {
+  background-color: gold;
+  line-height: normal;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-style: normal;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  row-gap: 2rem;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-slaider {
+  width: max-content;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+.image {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  width: var(--vw);
+}
+
+.slider-image {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.slider-image img {
+  width: var(--vw);
+  height: var(--vw);
+}
+
+.text {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 5rem;
+  overflow: hidden;
+}
+
+.text-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  height: 5rem;
+  flex-shrink: 0;
+  transition: 0.5s;
+}
+
+.switcher-buttons {
+  display: flex;
+}
+.switcher-main {
+  display: flex;
+  width: var(--vw);
+  justify-content: space-between;
+}
+
+.switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 1rem;
+  width: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.switcher-button {
+  width: 0.7rem;
+  height: 0.9rem;
+  border-radius: 100%;
+  background-color: green;
+}
+.switcher:hover .switcher-button {
+  background-color: yellowgreen;
+  box-shadow: 0 0 0.2rem rgba(84, 225, 166, 0.6);
+}
+
+input {
+  display: none;
+}
+input:checked {
+  display: none;
+}
+
+input#button-one:checked
+  ~ .switcher-main
+  > .switcher-buttons
+  > label[for="button-one"]
+  > .switcher-button,
+input#button-two:checked
+  ~ .switcher-main
+  > .switcher-buttons
+  > label[for="button-two"]
+  > .switcher-button,
+input#button-three:checked
+  ~ .switcher-main
+  > .switcher-buttons
+  > label[for="button-three"]
+  > .switcher-button,
+input#button-four:checked
+  ~ .switcher-main
+  > .switcher-buttons
+  > label[for="button-four"]
+  > .switcher-button {
+  background-color: yellowgreen;
+}
+
+input#button-one:checked ~ .image > .slider-image {
+  transform: translate(0);
+}
+input#button-two:checked ~ .image > .slider-image {
+  transform: translate(-100%);
+}
+input#button-three:checked ~ .image > .slider-image {
+  transform: translate(-200%);
+}
+input#button-four:checked ~ .image > .slider-image {
+  transform: translate(-300%);
+}
+
+input#button-one:checked ~ .switcher-main > .text > .text-main {
+  transform: translateY(0);
+}
+input#button-two:checked ~ .switcher-main > .text > .text-main {
+  transform: translateY(-100%);
+}
+input#button-three:checked ~ .switcher-main > .text > .text-main {
+  transform: translateY(-200%);
+}
+input#button-four:checked ~ .switcher-main > .text > .text-main {
+  transform: translateY(-300%);
+}
